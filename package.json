@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "NAN",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemstanislav5/server.git"
+  },
+  "keywords": [
+    "server",
+    "for",
+    "site"
+  ],
+  "author": "My",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lemstanislav5/server/issues"
+  },
+  "homepage": "https://github.com/lemstanislav5/server#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "https": "^1.0.0",
+    "nodemon": "^2.0.19",
+    "os": "^0.1.2"
+  }
+}
