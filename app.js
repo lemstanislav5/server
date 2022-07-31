@@ -7,7 +7,7 @@ const os = require('os').platform(),
       DOMAIN_NAME = 'chat-client.ga',
       DIR = (os == 'darwin')? '/.ssh_keys/': '/etc/letsencrypt/live/chat-client.ga/',
       PORT = (os == 'darwin')? 3000: 443,
-      // routes = require('./src/routes/index'),
+      routes = require('./src/routes/index'),
       verificationFile = require('./src/verificationFile/index')
 
 let options = {
@@ -21,4 +21,4 @@ const server = https
    .listen(PORT, () => console.log(`Listening port: ${PORT}`))
 
 app.use('/.well-known/acme-challenge', verificationFile)
-// app.use('/api', routes)
+app.use('/api', routes)
