@@ -9,7 +9,7 @@ const os = require('os').platform(),
       PORT = (os == 'darwin')? 3000: 443,
       routes = require('./src/routes/index'),
       verificationFile = require('./src/verificationFile/index'),
-      consfig = require('../consfig')
+      config = require('../config')
 
 let options = {
    key: fs.readFileSync(DIR + 'privkey.pem'),
