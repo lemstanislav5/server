@@ -9,7 +9,8 @@ const os = require('os').platform(),
       PORT = (os == 'darwin')? 3000: 443,
       routes = require('./src/routes/index'),
       verificationFile = require('./src/verificationFile/index'),
-      config = require('../config')
+      { host, user, password, database } = require('../config'),
+      mysql = require("mysql");
 
 let options = {
    key: fs.readFileSync(DIR + 'privkey.pem'),
@@ -24,4 +25,30 @@ const server = https
 app.use('/.well-known/acme-challenge', verificationFile)
 app.use('/api', routes);
 
-console.log(config)
+console.log(host, user, password, database )
+// Create connection configuration
+
+// var connection = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "students_records",
+// });
+//
+// // Connect to the server
+// connection.connect((err) => {
+//     if (err) {
+//       // Return error if present
+//       console.log("Error occurred", err);
+//     } else {
+//       // Create database
+//       console.log("Connected to MySQL Server");
+//       const query = "CREATE DATABASE students_records";
+//       connection.query(query, function (err, result) {
+//         if (err) {
+//           err;
+//         }
+//         console.log("New database created");
+//       });
+//     }
+// });
