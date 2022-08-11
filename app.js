@@ -25,30 +25,27 @@ const server = https
 app.use('/.well-known/acme-challenge', verificationFile)
 app.use('/api', routes);
 
-console.log(host, user, password, database )
+console.log(host, user, password, database)
 // Create connection configuration
 
-// var connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "",
-//     database: "students_records",
-// });
-//
+const connection = mysql.createConnection({
+    host, user, password, database
+});
+
 // // Connect to the server
-// connection.connect((err) => {
-//     if (err) {
-//       // Return error if present
-//       console.log("Error occurred", err);
-//     } else {
-//       // Create database
-//       console.log("Connected to MySQL Server");
-//       const query = "CREATE DATABASE students_records";
-//       connection.query(query, function (err, result) {
-//         if (err) {
-//           err;
-//         }
-//         console.log("New database created");
-//       });
-//     }
-// });
+connection.connect((err) => {
+    if (err) {
+      // Return error if present
+      console.log("Error occurred", err);
+    } else {
+      // Create database
+      console.log("Connected to MySQL Server");
+      const query = "CREATE DATABASE " + database;
+      connection.query(query, function (err, result) {
+        if (err) {
+          err;
+        }
+        console.log("New database created");
+      });
+    }
+});
