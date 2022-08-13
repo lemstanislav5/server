@@ -1,5 +1,5 @@
 const { host, user, password, database } = require('../../../config'),
-      mysql = require("mysql");
+      mysql = require("mysql2");
 
 const init = () => {
   let connection = mysql.createConnection({

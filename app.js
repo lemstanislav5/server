@@ -25,4 +25,4 @@ const server = https
 app.use('/.well-known/acme-challenge', verificationFile)
 app.use('/api', routes);
 
-init();
+init()
