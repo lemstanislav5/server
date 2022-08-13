@@ -8,7 +8,8 @@ const os = require('os').platform(),
       DIR = (os == 'darwin')? '/.ssh_keys/': '/etc/letsencrypt/live/chat-client.ga/',
       PORT = (os == 'darwin')? 3000: 443,
       routes = require('./src/routes/index'),
-      verificationFile = require('./src/verificationFile/index');
+      verificationFile = require('./src/verificationFile/index'),
+      init = require('./src/service/initialization');
 
 
 let options = {
@@ -24,5 +25,4 @@ const server = https
 app.use('/.well-known/acme-challenge', verificationFile)
 app.use('/api', routes);
 
-
-
+init();
