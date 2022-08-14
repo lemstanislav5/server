@@ -5,11 +5,11 @@ const os = require('os').platform(),
       https = require('https'),
       fs = require('fs'),
       DOMAIN_NAME = 'chat-client.ga',
-      DIR = (os == 'darwin')? '/.ssh_keys/': '/etc/letsencrypt/live/chat-client.ga/',
+      DIR = (os == 'darwin')? '../ssh_keys/': '/etc/letsencrypt/live/chat-client.ga/',
       PORT = (os == 'darwin')? 3000: 443,
       routes = require('./src/routes/index'),
       verificationFile = require('./src/verificationFile/index'),
-      init = require('./src/service/initialization');
+      init = require('./src/services/initialization.service');
 
 
 let options = {
@@ -34,7 +34,8 @@ const server = https
       // Pass to next layer of middleware
       next();
   });
-app.use('/.well-known/acme-challenge', verificationFile)
+app.use('/.well-known/acme-challenge', verificationFile);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use('/api', routes);
-
-init()
+init();

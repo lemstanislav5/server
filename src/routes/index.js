@@ -1,7 +1,8 @@
 const express     = require('express'),
       router      = express.Router(),
-      authRoutes = require('./auth.routes')
-      registrationRoutes = require('./registration.routes')
+      loginRoutes = require('./login.routes'),
+      registrationRoutes = require('./registration.routes');
 
-router.use('/registration', authRoutes)
+router.use('/login', loginRoutes)
+router.use('/registration', registrationRoutes)
 module.exports = router

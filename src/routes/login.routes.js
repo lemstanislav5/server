@@ -4,7 +4,7 @@ const express = require('express'),
   // UsersService = require('../services/users.service')
 
 router.use(async (req, res, next) => {
-  console.log(req)
+  // console.log(req)
   // let data = await UsersService.getUsers()
   //
   // if (data) {

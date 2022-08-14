@@ -1,26 +1,17 @@
 const express = require('express'),
       router = express.Router();
+      // UsersService = require('../services/users.service');
   // UserController = require('../controllers/users.controller'),
-  // UsersService = require('../services/users.service')
 
-router.use(async (req, res, next) => {
-  console.log(req)
-  // let data = await UsersService.getUsers()
-  //
-  // if (data) {
-  //   req.users = data
-  //   next()
-  // } else
-  //   return res
-  //     .status(500)
-  //     .send({ message: 'Error while getting users' })
+router
+  .route('/')
+  .post((req, res) => {
+  if(!req.body) {
+    return res.sendStatus(400);
+  } else {
+    console.log(req.body);
+    return res.sendStatus(200);
+  }
 })
-
-// router
-//   .route('/')
-//   .get(UserController.getUsers)
-//   .post(UserController.createUser)
-//   .put(UserController.updateUser)
-//   .delete(UserController.deleteUser)
 
 module.exports = router
