@@ -1,4 +1,4 @@
-const query = require("./query"),
+const query = require("./query.sql"),
       sql = `create table if not exists users(
             id int primary key auto_increment,
             login varchar(255) not null,

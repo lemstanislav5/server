@@ -10,8 +10,10 @@ const query = async (sql, callback) => {
   });
   
   connection.query(sql, callback)
-    .then(result =>{
-      console.log(result);
+    .then(result => {
+      if(result[0].length === 0) {
+        console.log('Можно делать INSERT ЗАПРОС!')
+      }
     })
     .catch(err =>{
       if(err){
