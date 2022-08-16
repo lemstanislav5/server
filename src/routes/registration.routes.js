@@ -7,11 +7,12 @@ router
   .route('/')
   .post((req, res) => {
     let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress; 
+    let time = new Date().getTime();
     console.log(ip.split(':')[3]);
     if(!req.body) {
       return res.sendStatus(400);
     } else {
-      UsersService.checkUser(req.body.login)
+      UsersService.checkUser({login: req.body.login})
         .then(res=> {
           // console.log(res);
         })
